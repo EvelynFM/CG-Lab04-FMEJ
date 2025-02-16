@@ -57,7 +57,7 @@ void ColorF() {
 
 
 
-void CrearCuadradoyRombo()
+void CrearIniciales()
 {
 	GLfloat vertices[] = {
 		//Letra "F" 
@@ -252,7 +252,7 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 	//CREAR VENTANA
-	GLFWwindow *mainWindow = glfwCreateWindow(WIDTH, HEIGHT, "Ejercicio 1", NULL, NULL);
+	GLFWwindow *mainWindow = glfwCreateWindow(WIDTH, HEIGHT, "Practica 01 - Introduccion a OpenGL", NULL, NULL);
 
 	if (!mainWindow)
 	{
@@ -282,9 +282,8 @@ int main()
 	//Asignar Viewport
 	glViewport(0, 0, BufferWidth, BufferHeight);
 
- //Crear cuadrado y rombo
-	CrearCuadradoyRombo();
-	
+ //Crear iniciales "FME"
+	CrearIniciales();
 	CompileShaders();
 	
 	//Loop mientras no se cierra la ventana
@@ -299,7 +298,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shader);
-		//cuadrado
+
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES,0,66);
 
