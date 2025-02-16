@@ -32,20 +32,24 @@ void main()											\n\
 
 //Colores del fondo
 //Varaibles
-float R = 0.0f,
-	  G = 1.0f,
-	  B = 0.0f;
+float R,G,B;
 double t1 = 0.0; //Variable tiempo 1
 
-//Funcion
+//Funcion para generar coloes aleatorios
+void GenColor() {
+	//Generar valores aleatorios para colores
+	R = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+	G = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+	B = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+}
+
+//Funcion para cambiar colores fondo de la ventana
 void ColorF() {
 	double t2 = glfwGetTime(); //Obtener el tiempo
 	//Configurar a que cambie cada 2 segundos
 	if (t2 - t1 >= 2.0) {
-		//Generar valores aleatorios
-		R = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		G = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		B = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		//Integra funcion creada
+		GenColor();
 		//Actualizar el tiempo de referencia
 		t1 = t2;
 	}
@@ -227,6 +231,11 @@ void CompileShaders() {
 }
 int main()
 {
+	//Inicializar generador de números aleatorios
+	srand(static_cast <unsigned> (time(0)));
+
+	//Generar valores aleatorios al inicio 
+	GenColor();
 
 	//Inicialización de GLFW
 	if (!glfwInit())
