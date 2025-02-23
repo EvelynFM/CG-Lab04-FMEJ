@@ -1,4 +1,4 @@
-# CG-Lab04-FMEJ
+# CG-Lab02-FMEJ
 **Universidad Nacional Autonoma de México**  
 **Facultad de ingeniería**  
 **Computación Gráfica e Interaccion Humano Computadora**  
